@@ -1,0 +1,406 @@
+.jewellery-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.jewellery-container {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+}
+
+/* Images stacked, only active visible */
+.jewellery-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 0;
+}
+
+.jewellery-background.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.jewellery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.jewellery-part {
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Divider line full height including text area */
+.jewellery-divider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 2;
+}
+
+/* Text area - bottom positioned */
+.jewellery-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #ffffff;
+  background-color: transparent;
+  backdrop-filter: none;
+  transition: all 0.3s ease;
+  z-index: 3;
+  border: none;
+}
+
+/* Hover/active - light transparency only at bottom */
+.jewellery-part:hover .jewellery-content,
+.jewellery-part.active .jewellery-content {
+  height: 220px;
+  padding: 25px 20px;
+  background: linear-gradient(to top, 
+    rgba(167, 177, 148, 0.9) 0%, 
+    rgba(167, 177, 148, 0.7) 80%,
+    transparent 100%);
+  backdrop-filter: blur(1px);
+  transform: translateY(0);
+}
+
+/* Headings */
+.jewellery-content h3 {
+  font-size: 36px;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.jewellery-part:hover .jewellery-content h3,
+.jewellery-part.active .jewellery-content h3 {
+  transform: translateY(-5px);
+  margin-bottom: -5px;
+}
+
+.jewellery-content p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0 0 25px 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease 0.1s;
+  color: #2c2c2c;
+  font-weight: 500;
+  white-space: normal;
+}
+
+.jewellery-part:hover .jewellery-content p,
+.jewellery-part.active .jewellery-content p {
+  opacity: 1;
+  max-height: 80px;
+  transform: translateY(0);
+}
+
+/* Jewellery Button Styles */
+.jewellery-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #D9DFCC;
+  color: #435739;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  border: 2px solid #435739;
+  padding: 12px 30px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.jewellery-part:hover .jewellery-button,
+.jewellery-part.active .jewellery-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Initially hidden "V" shape */
+.jewellery-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #435739;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 100%, 0% 100%, 100% 50%
+  );
+  transition: all 0.4s ease;
+}
+
+/* Text & arrow */
+.btn-text,
+.btn-arrow {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.btn-arrow {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Hover Effect */
+.jewellery-button:hover {
+  background: #D9DFCC;
+  color: #435739;
+  border-color: #435739;
+}
+
+/* On hover — reveal the V cut */
+.jewellery-button:hover::after {
+  width: 60px;
+}
+
+/* Arrow motion */
+.jewellery-button:hover .btn-arrow {
+  transform: translateX(6px);
+  color: #435739;
+}
+
+.jewellery-button:hover .btn-text {
+  color: #435739;
+}
+
+/* ===== TABLET VIEW ===== */
+@media (max-width: 1024px) {
+  .jewellery-container {
+    height: 600px;
+  }
+
+  .jewellery-overlay {
+    flex-direction: column;
+  }
+
+  .jewellery-part {
+    flex: none;
+    height: 25%;
+    width: 100%;
+  }
+
+  .jewellery-divider {
+    display: none;
+  }
+
+  .jewellery-part::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 4;
+  }
+
+  .jewellery-part:last-child::after {
+    display: none;
+  }
+
+  .jewellery-content {
+    height: 100%;
+    padding: 15px 20px;
+    justify-content: flex-end;
+    background-color: transparent;
+  }
+
+  .jewellery-part:hover .jewellery-content,
+  .jewellery-part.active .jewellery-content {
+    height: 100%;
+    padding: 15px 20px;
+    background: linear-gradient(to top, 
+      rgba(167, 177, 148, 0.9) 0%, 
+      rgba(167, 177, 148, 0.7) 80%,
+      transparent 100%);
+  }
+
+  .jewellery-content h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .jewellery-part:hover .jewellery-content h3,
+  .jewellery-part.active .jewellery-content h3 {
+    transform: translateY(-5px);
+    margin-bottom: 12px;
+  }
+
+  .jewellery-content p {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .jewellery-button {
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+  
+  .jewellery-button:hover::after {
+    width: 50px;
+  }
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+  .jewellery-container {
+    height: 500px !important;
+  }
+
+  .jewellery-content {
+    padding: 12px 15px;
+    justify-content: center !important;
+  }
+
+  .jewellery-content h3 {
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .jewellery-part:hover .jewellery-content h3,
+  .jewellery-part.active .jewellery-content h3 {
+    transform: translateY(-3px);
+    margin-bottom: 10px;
+  }
+
+  .jewellery-content p {
+    font-size: 12px !important;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    max-height: 60px !important;
+  }
+
+  .jewellery-button {
+    font-size: 13px;
+    padding: 8px 20px;
+    gap: 8px;
+    letter-spacing: 0.5px;
+  }
+  
+  .btn-arrow {
+    font-size: 16px;
+  }
+  
+  .jewellery-button:hover::after {
+    width: 40px;
+  }
+
+  /* Mobile text adjustments */
+  .jewellery-part .jewellery-content p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .jewellery-part:hover .jewellery-content p,
+  .jewellery-part.active .jewellery-content p {
+    max-height: 60px !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .jewellery-container {
+    height: 450px;
+  }
+
+  .jewellery-content {
+    padding: 10px 12px;
+  }
+
+  .jewellery-content h3 {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .jewellery-part:hover .jewellery-content h3,
+  .jewellery-part.active .jewellery-content h3 {
+    transform: translateY(-2px);
+    margin-bottom: 8px;
+  }
+
+  .jewellery-content p {
+    font-size: 13px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    max-height: 50px !important;
+  }
+
+  .jewellery-button {
+    font-size: 12px;
+    padding: 7px 18px;
+    gap: 6px;
+    letter-spacing: 0.5px;
+  }
+  
+  .btn-arrow {
+    font-size: 14px;
+  }
+  
+  .jewellery-button:hover::after {
+    width: 35px;
+  }
+
+  /* Extra small mobile text adjustments */
+  .jewellery-part .jewellery-content p {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .jewellery-part:hover .jewellery-content p,
+  .jewellery-part.active .jewellery-content p {
+    max-height: 50px !important;
+  }
+}
+
+/* ===== DESKTOP ONLY (1025px and above) ===== */
+@media (min-width: 1025px) {
+  /* All desktop styles remain exactly as defined above */
+}

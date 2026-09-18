@@ -1,0 +1,88 @@
+/* ClientLogoMarquee.css */
+.logo-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  padding: 20px 0 !important;
+  position: relative;
+}
+
+.logo-marquee-track {
+  display: flex;
+  animation: logo-scroll 25s linear infinite;
+  gap: 70px;
+  padding: 0 30px;
+}
+
+.logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.logo-image {
+  width: 140px !important;
+  height: 80px !important;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.4s ease;
+  cursor: default;
+  padding: 15px !important;
+ 
+}
+
+.logo-item:hover .logo-image {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-8px) scale(1.05);
+  cursor: pointer;
+
+}
+
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+/* Pause animation on container hover */
+.logo-marquee-container:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .logo-marquee-track {
+    gap: 50px;
+    animation-duration: 20s;
+  }
+  
+  .logo-image {
+    width: 120px;
+    height: 70px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-marquee-track {
+    gap: 40px;
+    animation-duration: 15s;
+  }
+  
+  .logo-image {
+    width: 100px;
+    height: 60px;
+    padding: 10px;
+  }
+  
+  .logo-marquee-container {
+    padding: 30px 0;
+  }
+}

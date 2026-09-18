@@ -1,0 +1,781 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.jewelry {
+  padding: 100px 20px;
+  background: #F2F4EC;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Header */
+.jewelry__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.jewelry__title {
+  font-size: 35px;
+  color: #000;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Prata', serif;
+}
+
+.jewelry__description {
+  color: #3c3c3c;
+  font-size: 17px;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Slider */
+.jewelry__slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: -20px !important;
+}
+
+.jewelry__slider-button {
+  width: 45px;
+  height: 45px;
+  border: 2px solid #435739;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #333333;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.jewelry__slider-button:hover {
+  background: #333333;
+  color: #ffffff;
+  border-color: #333333;
+  transform: scale(1.1);
+}
+
+.jewelry__slider-content {
+  flex: 1;
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+.jewelry__products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 10px 0;
+}
+
+/* Product Card */
+.jewelry__product {
+  background-color: #F2F4EC;
+  border-radius: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid #435739;
+}
+
+/* Image Container */
+.jewelry__product-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.jewelry__product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.jewelry__product:hover .jewelry__product-image {
+  transform: scale(1.05);
+}
+
+/* Actions */
+.jewelry__product-actions {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+}
+
+.jewelry__product:hover .jewelry__product-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Action Buttons */
+.jewelry__action-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #333333;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jewelry__action-button:hover {
+  background: #435739;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.jewelry__action-button--wishlist-active {
+  background: #ff4444;
+  color: #ffffff;
+}
+
+/* Product Info */
+.jewelry__product-info {
+  padding: 20px 15px;
+  text-align: left;
+  background: #F2F4EC;
+}
+
+.jewelry__product-type {
+  font-size: 13px;
+  color: #6B7C61;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.jewelry__product-name {
+  font-size: 23px;
+  color: #435739;
+  margin-bottom: -10px;
+  font-weight: 700;
+  line-height: 1.3;
+  min-height: 46px;
+  text-align: left;
+  font-family: 'Playfair Display', serif;
+  display: block;
+}
+
+.jewelry__product-price {
+  font-size: 18px;
+  color: #333333;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.jewelry__product-weight {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+/* Buy Button */
+.jewelry__buy-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #D9DFCC;
+  color: #435739;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  border: 2px solid #435739;
+  padding: 12px 30px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.jewelry__buy-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #435739;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 100% 50%);
+  transition: all 0.4s ease;
+}
+
+.jewelry__buy-button-text,
+.jewelry__buy-button-icon {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.jewelry__buy-button-icon {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.jewelry__buy-button:hover {
+  background: #D9DFCC;
+  color: #435739;
+  border-color: #435739;
+}
+
+.jewelry__buy-button:hover::after {
+  width: 60px;
+}
+
+.jewelry__buy-button:hover .jewelry__buy-button-icon {
+  transform: translateX(6px);
+  color: #435739;
+}
+
+.jewelry__buy-button:hover .jewelry__buy-button-text {
+  color: #435739;
+}
+
+/* Mobile Controls */
+.jewelry__mobile-controls {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.jewelry__mobile-button {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #435739;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #333333;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jewelry__mobile-button:hover {
+  background: #333333;
+  color: #ffffff;
+  border-color: #333333;
+  transform: scale(1.1);
+}
+
+.jewelry__slide-indicator {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .jewelry__products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .jewelry {
+    padding: 60px 20px;
+  }
+  
+  .jewelry__slider .jewelry__slider-button {
+    display: none;
+  }
+  
+  .jewelry__mobile-controls {
+    display: flex;
+  }
+  
+  .jewelry__slider {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .jewelry__slider-content {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .jewelry__products {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .jewelry {
+    padding: 40px 15px;
+  }
+  
+  .jewelry__title {
+    font-size: 24px;
+  }
+  
+  .jewelry__description {
+    font-size: 14px;
+  }
+  
+  .jewelry__product-image-wrapper {
+    height: 350px !important;
+  }
+  
+  .jewelry__mobile-button {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+  
+  .jewelry__action-button {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .jewelry__product-info {
+    padding: 15px 10px;
+  }
+  
+  .jewelry__product-name {
+    font-size: 18px;
+    min-height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .jewelry__product-price {
+    font-size: 16px;
+  }
+  
+  .jewelry__buy-button {
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+  
+  .jewelry__buy-button:hover::after {
+    width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .jewelry__products {
+    max-width: 320px;
+  }
+  
+  .jewelry__title {
+    font-size: 20px;
+  }
+  
+  .jewelry__description {
+    font-size: 13px;
+  }
+  
+  .jewelry__mobile-button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .jewelry__product-image-wrapper {
+    height: 250px;
+  }
+  
+  .jewelry__product-type {
+    font-size: 11px;
+  }
+  
+  .jewelry__product-name {
+    font-size: 16px;
+  }
+  
+  .jewelry__product-price {
+    font-size: 15px;
+  }
+  
+  .jewelry__buy-button {
+    font-size: 12px;
+    padding: 8px 20px;
+    gap: 6px;
+  }
+  
+  .jewelry__buy-button-icon {
+    font-size: 14px;
+  }
+  
+  .jewelry__buy-button:hover::after {
+    width: 35px;
+  }
+}
+
+/* Desktop only styles */
+@media (min-width: 1025px) {
+  .jewelry__mobile-controls {
+    display: none !important;
+  }
+  
+  .jewelry__slider .jewelry__slider-button {
+    display: flex !important;
+  }
+}
+
+/* Size Selection Styles for Jewelry Collection */
+.jewelry__size-row-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+  text-align: left;
+}
+
+.jewelry__size-label-text {
+  font-size: 0.9rem;
+  color: #545454;
+  font-weight: 400;
+  white-space: nowrap;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.jewelry__size-numbers-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.jewelry__size-number-btn {
+  background: transparent;
+  border: 1px solid #435739;
+  color: #435739;
+  padding: 2px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  min-width: 28px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jewelry__size-number-btn:hover {
+  background: #435739;
+  color: #D9DFCC;
+}
+
+.jewelry__size-number-btn--active {
+  background: #435739;
+  color: #D9DFCC;
+  font-weight: 500;
+}
+
+/* Responsive Design for Size Selection in Jewelry Collection */
+@media (max-width: 768px) {
+  .jewelry__size-row-container {
+    gap: 8px;
+  }
+  
+  .jewelry__size-label-text {
+    font-size: 0.85rem;
+  }
+  
+  .jewelry__size-numbers-row {
+    gap: 4px;
+  }
+  
+  .jewelry__size-number-btn {
+    font-size: 0.85rem;
+    padding: 2px 6px;
+    min-width: 26px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .jewelry__size-row-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .jewelry__size-numbers-row {
+    gap: 3px;
+  }
+  
+  .jewelry__size-number-btn {
+    font-size: 0.8rem;
+    padding: 1px 5px;
+    min-width: 24px;
+    height: 20px;
+  }
+}
+
+/* Size Popup Styles */
+.jewelry__size-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.jewelry__size-popup {
+  background: white;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: popupFadeIn 0.3s ease;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.jewelry__size-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.jewelry__size-popup-header h3 {
+  margin: 0;
+  color: #435739;
+  font-family: 'Prata', serif;
+  font-size: 1.5rem;
+}
+
+.jewelry__size-popup-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #666;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.jewelry__size-popup-close:hover {
+  color: #435739;
+}
+
+.jewelry__size-popup-content {
+  padding: 25px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.jewelry__size-popup-image {
+  flex: 0 0 120px;
+}
+
+.jewelry__size-popup-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.jewelry__size-popup-info {
+  flex: 1;
+}
+
+.jewelry__size-popup-info h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+}
+
+.jewelry__size-popup-price {
+  font-size: 1.1rem;
+  color: #435739;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.jewelry__size-popup-selection p {
+  margin: 0 0 12px 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.jewelry__size-popup-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.jewelry__size-popup-option {
+  padding: 8px 15px;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  min-width: 45px;
+  text-align: center;
+}
+
+.jewelry__size-popup-option:hover {
+  border-color: #435739;
+  color: #435739;
+}
+
+.jewelry__size-popup-option--active {
+  background: #435739;
+  color: white;
+  border-color: #435739;
+}
+
+.jewelry__size-popup-actions {
+  display: flex;
+  gap: 15px;
+  padding: 20px 25px;
+  border-top: 1px solid #eee;
+}
+
+.jewelry__size-popup-cancel,
+.jewelry__size-popup-confirm {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Playfair Display', serif;
+}
+
+.jewelry__size-popup-cancel {
+  background: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.jewelry__size-popup-cancel:hover {
+  background: #e0e0e0;
+}
+
+.jewelry__size-popup-confirm {
+  background: #435739;
+  color: white;
+}
+
+.jewelry__size-popup-confirm:hover:not(:disabled) {
+  background: #35452d;
+}
+
+.jewelry__size-popup-confirm:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design for Popup */
+@media (max-width: 768px) {
+  .jewelry__size-popup {
+    max-width: 90%;
+    margin: 20px;
+  }
+  
+  .jewelry__size-popup-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .jewelry__size-popup-image {
+    flex: none;
+    width: 150px;
+    margin: 0 auto;
+  }
+  
+  .jewelry__size-popup-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .jewelry__size-popup {
+    max-width: 95%;
+  }
+  
+  .jewelry__size-popup-header {
+    padding: 15px 20px;
+  }
+  
+  .jewelry__size-popup-content {
+    padding: 20px;
+  }
+  
+  .jewelry__size-popup-options {
+    justify-content: center;
+  }
+}

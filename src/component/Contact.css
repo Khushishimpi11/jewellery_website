@@ -1,0 +1,276 @@
+.contact-section {
+  width: 100%;
+  height: 80vh;
+  background-image: url('https://wdtswarna.wpengine.com/wp-content/uploads/2024/10/Footer-img.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 40, 0, 0.7) 0%, 
+    rgba(34, 85, 34, 0.6) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-content {
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.contact-subtitle {
+  font-family: 'Lora', serif;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 300;
+  margin: 0;
+  color: #D9DFCC;
+}
+
+/* ✨ Contact Button */
+.contact-btn {
+  position: relative;
+  overflow: hidden;
+  background-color: #D9DFCC;
+  color: #435739;
+  border: 3px solid #435739;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.4s ease;
+}
+
+/* Decorative V-cut Reveal */
+.contact-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #435739;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 100% 50%);
+  transition: all 0.4s ease;
+}
+
+.contact-btn-text,
+.contact-btn-arrow {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.contact-btn-arrow {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Hover Effects */
+.contact-btn:hover {
+  background: #D9DFCC;
+  color: #435739 !important;
+  border-color: #435739 !important;
+}
+
+.contact-btn:hover::after {
+  width: 60px;
+}
+
+.contact-btn:hover .contact-btn-arrow {
+  transform: translateX(6px);
+  color: #435739 !important;
+}
+
+.contact-btn:hover .contact-btn-text {
+  color: #435739 !important;
+}
+
+/* ===== ENHANCED RESPONSIVE DESIGN ===== */
+
+/* Large Tablets (1024px and below) */
+@media (max-width: 1024px) {
+  .contact-section {
+    height: 50vh;
+  }
+  
+  .contact-title {
+    font-size: 3rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .contact-section {
+    height: 60vh;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+  }
+
+  .contact-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .contact-btn {
+    padding: 14px 35px;
+    font-size: 1.1rem;
+  }
+  
+  .contact-content {
+    gap: 18px;
+    padding: 0 30px;
+  }
+}
+
+/* Small Tablets and Large Phones (600px and below) */
+@media (max-width: 600px) {
+  .contact-section {
+    height: 55vh;
+  }
+  
+  .contact-title {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .contact-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+  
+  .contact-btn {
+    padding: 13px 32px;
+    font-size: 1rem;
+  }
+  
+  .contact-content {
+    gap: 16px;
+    padding: 0 25px;
+  }
+}
+
+/* Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  .contact-section {
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+
+  .contact-btn {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    border-width: 2px;
+  }
+  
+  .contact-content {
+    gap: 15px;
+    padding: 0 20px;
+  }
+  
+  .contact-btn::after {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 100% 50%);
+  }
+}
+
+/* Small Mobile Phones (360px and below) */
+@media (max-width: 360px) {
+  .contact-section {
+    height: 45vh;
+    min-height: 350px;
+  }
+  
+  .contact-title {
+    font-size: 1.8rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+  
+  .contact-btn {
+    padding: 11px 25px;
+    font-size: 0.9rem;
+  }
+  
+  .contact-content {
+    gap: 12px;
+    padding: 0 15px;
+  }
+}
+
+/* Very Small Mobile Phones (320px and below) */
+@media (max-width: 320px) {
+  .contact-section {
+    min-height: 320px;
+  }
+  
+  .contact-title {
+    font-size: 1.6rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .contact-btn {
+    padding: 10px 22px;
+    font-size: 0.85rem;
+  }
+}

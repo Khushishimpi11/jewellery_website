@@ -1,0 +1,262 @@
+/* TestimonialSection.css */
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+.feedback-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  background-color: #D9DFCC;
+  color: #2c2c2c;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.feedback-content {
+  width: 55%;
+  position: relative;
+}
+
+.feedback-subheading {
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: #435739;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.feedback-heading {
+  font-family: 'Prata', serif;
+  font-size: 42px;
+  margin-bottom: 40px;
+  color: #000;
+}
+
+.feedback-quote {
+  position: relative;
+  transition: opacity 0.8s ease;
+}
+
+.fade-in {
+  animation: fadeInAnimation 0.8s ease-in-out;
+}
+
+@keyframes fadeInAnimation {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quote-symbol {
+  font-size: 42px;
+  color: #435739;
+}
+
+.quote-symbol.left {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.quote-symbol.right {
+  float: right;
+  margin-top: -20px;
+}
+
+.feedback-text {
+  font-size: 17px;
+  color: #435739;
+  line-height: 1.8;
+  margin: 20px 0;
+}
+
+.feedback-user {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.user-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.user-name {
+  font-size: 18px;
+  color: black;
+}
+
+.user-location {
+  font-size: 14px;
+  color: #000;
+}
+
+.feedback-navigation {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.nav-number {
+  font-size: 16px;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.nav-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 60px;
+  height: 3px;
+  background-color: #d6c7b7;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #435739;
+}
+
+.dot.active-dot {
+  background-color: #435739;
+}
+
+.feedback-image {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50% 0 0 0;
+}
+/* Keep your previous .image-container code and add this: */
+
+/* Add shine effect */
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+}
+
+/* Animation */
+@keyframes shineEffect {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* Trigger shine on hover */
+.image-container:hover::before {
+  animation: shineEffect 0.8s ease-in-out;
+}
+
+/* Keep your overlay border on top */
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  border: 3px solid #e6e9e4;
+  border-radius: 50% 0 0 0;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: all 0.4s ease;
+}
+
+
+
+.jewelry-image {
+  width: 600px;
+  height: 650px;
+  object-fit: cover;
+  border-radius: 50% 0 0 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .feedback-container {
+    padding: 80px 60px;
+  }
+  
+  .feedback-heading {
+    font-size: 36px;
+  }
+  
+  .jewelry-image {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-container {
+    flex-direction: column;
+    padding: 60px 40px;
+    text-align: left;
+  }
+  
+  .feedback-content {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .feedback-image {
+    width: 100%;
+  }
+  
+  .feedback-user {
+    justify-content: center;
+  }
+  
+  .feedback-navigation {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-container {
+    padding: 40px 20px;
+  }
+  
+  .feedback-heading {
+    font-size: 28px;
+  }
+  
+  .feedback-text {
+    font-size: 15px;
+  }
+  
+  .jewelry-image {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .dot {
+    width: 40px;
+  }
+}

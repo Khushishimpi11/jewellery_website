@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+
+.gallery {
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px;
+  font-family: 'Arial', sans-serif;
+  background-color: #F2F4EC;
+}
+
+.gallery__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.gallery__title {
+  font-size: 33px;
+  margin-bottom: 10px;
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Prata', serif;
+}
+
+.gallery__intro {
+  font-size: 17.5px;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.gallery__separator {
+  height: 1px;
+  background-color: #ddd;
+  width: 80%;
+  margin: 0 auto 25px auto;
+}
+
+.gallery__cta-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  letter-spacing: 1px;
+}
+
+.gallery__cta-button:hover {
+  background-color: #333;
+}
+
+.gallery__slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery__products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.product__image-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.product__image {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.icons-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+}
+
+.product:hover .icons-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wishlist-icon,
+.bag-icon,
+.view-icon {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #333333;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishlist-icon:hover,
+.bag-icon:hover,
+.view-icon:hover {
+  background: #435739;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.wishlist-icon.active {
+  background: #ff4444;
+  color: #ffffff;
+}
+
+.product__hover-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+/* Updated Buy Now Button Styles */
+.buy-now-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #D9DFCC;
+  color: #435739;
+  font-family: 'Prata', serif;
+  font-size: 16px;
+  border: 2px solid #435739;
+  padding: 12px 30px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 100%;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+/* Initially hidden "V" shape */
+.buy-now-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #435739;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 100%, 0% 100%, 100% 50%
+  );
+  transition: all 0.4s ease;
+}
+
+/* Text & arrow */
+.btn-text,
+.btn-arrow {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.btn-arrow {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Hover Effect */
+.buy-now-button:hover {
+  background: #D9DFCC;
+  color: #435739;
+  border-color: #435739;
+}
+
+/* On hover — reveal the V cut */
+.buy-now-button:hover::after {
+  width: 60px;
+}
+
+/* Arrow motion */
+.buy-now-button:hover .btn-arrow {
+  transform: translateX(6px);
+  color: #435739;
+}
+
+.buy-now-button:hover .btn-text {
+  color: #435739;
+}
+
+.product__image-container:hover .product__hover-actions {
+  transform: translateY(0);
+}
+
+.product__image-container:hover .product__image {
+  transform: scale(1.05);
+}
+
+.product__info {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.product__type {
+  font-size: 1rem;
+  color: #7d9272;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.product__name {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #435739;
+  font-weight: 700;
+  font-family: 'Prata', serif;
+}
+
+.product__price {
+  font-size: 1.3rem;
+  color: #000;
+  font-weight: 600;
+}
+
+.slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 2px solid #435739 !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 25px;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: none;
+}
+
+.slider__arrow:hover {
+  background: #435739;
+  color: #F2F4EC;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.slider__arrow--prev {
+  left: -60px;
+}
+
+.slider__arrow--next {
+  right: -60px;
+}
+
+/* Tablet View (768px - 1024px) - Show 2 cards with bottom arrows */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .gallery {
+    padding: 70px 50px;
+  }
+  
+  .gallery__products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .product {
+    width: 100%;
+  }
+  
+  /* Increased card height for tablet */
+  .product__image {
+    height: 420px; /* Increased from 380px */
+  }
+  
+  /* Hide side arrows */
+  .slider__arrow--prev,
+  .slider__arrow--next {
+    display: none;
+  }
+  
+  /* Bottom arrows container */
+  .gallery__slider {
+    flex-direction: column;
+  }
+  
+  .slider__arrows-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    width: 100%;
+  }
+  
+  .slider__arrow--bottom {
+    position: static;
+    transform: none;
+    background: white;
+    border: 2px solid #435739 !important;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  
+  .slider__arrow--bottom:hover {
+    background: #435739;
+    color: #F2F4EC;
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile View (768px and below) - Show 1 card with bottom arrows */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 50px 20px;
+  }
+  
+  .gallery__products {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .product {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .gallery__title {
+    font-size: 28px;
+  }
+  
+  .gallery__intro {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  /* Increased card height for mobile */
+  .product__image {
+    height: 380px !important; /* Increased from 380px */
+  }
+  
+  .product__name,
+  .product__price {
+    font-size: 1.2rem;
+  }
+  
+  /* Hide side arrows */
+  .slider__arrow--prev,
+  .slider__arrow--next {
+    display: none;
+  }
+  
+  /* Bottom arrows container */
+  .gallery__slider {
+    flex-direction: column;
+  }
+  
+  .slider__arrows-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    width: 100%;
+  }
+  
+  .slider__arrow--bottom {
+    position: static;
+    transform: none;
+    background: white;
+    border: 2px solid #435739 !important;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  
+  .slider__arrow--bottom:hover {
+    background: #435739;
+    color: #F2F4EC;
+    transform: scale(1.05);
+  }
+}
+
+/* Small Mobile Optimization */
+@media (max-width: 480px) {
+  .gallery {
+    padding: 40px 15px;
+  }
+  
+  .gallery__title {
+    font-size: 24px;
+  }
+  
+  .gallery__intro {
+    font-size: 15px;
+  }
+  
+  /* Further increased card height for small mobile */
+  .product__image {
+    height: 380px; /* Maintains good proportion for small screens */
+  }
+  
+  .slider__arrow--bottom {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+  
+  .slider__arrows-bottom {
+    gap: 25px;
+    margin-top: 35px;
+  }
+}
+/* Tablet View (768px - 1024px) - Show 2 cards side by side */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .gallery {
+    padding: 70px 40px;
+  }
+
+  .gallery__products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 22px;
+    width: 100%;
+    overflow: hidden; /* prevents third product */
+  }
+
+  .product {
+    width: 100%;
+  }
+
+  .product__image {
+    height: 420px;
+  }
+
+  /* Hide side arrows in tablet */
+  .slider__arrow--prev,
+  .slider__arrow--next {
+    display: none !important;
+  }
+
+  /* Bottom arrows */
+  .gallery__slider {
+    flex-direction: column;
+  }
+
+  .slider__arrows-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .slider__arrow--bottom {
+    position: static;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #435739 !important;
+    font-size: 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+}
+
+

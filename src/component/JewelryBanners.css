@@ -1,0 +1,390 @@
+/* JewelryBanners.css */
+.jewelry-showcase-wrapper {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  margin: 0 auto;
+  background-color: #fff;
+  align-items: center;
+}
+
+/* Common Showcase Styles */
+.showcase-panel {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  min-width: 500px;
+  max-width: 680px;
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: none;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+}
+
+/* Panel Overlay - Only for elegance-panel */
+.panel-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.elegance-panel .panel-backdrop {
+  opacity: 1;
+}
+
+/* ✨ Shine effect only on hover */
+.showcase-panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  opacity: 0;
+  transition: all 0.6s ease;
+  z-index: 2;
+}
+
+.showcase-panel:hover::after {
+  opacity: 1;
+  left: 120%;
+  transition: left 1.2s ease-in-out, opacity 0.3s ease;
+}
+
+/* Panel Content Layout */
+.panel-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+}
+
+/* Text Styles */
+.panel-text {
+  color: white;
+}
+
+/* Tag Styles */
+.panel-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  display: inline-block;
+}
+
+/* Heading Styles */
+.panel-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+/* Description Styles */
+.panel-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  opacity: 0.9;
+  max-width: 400px;
+}
+
+/* === Collection Action Button Styles === */
+.collection-action-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #D9DFCC;
+  color: #435739;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  border: 2px solid #435739;
+  padding: 12px 24px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  width: auto;
+  min-width: 140px;
+}
+
+/* Initially hidden "V" shape */
+.collection-action-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #435739;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 100%, 0% 100%, 100% 50%
+  );
+  transition: all 0.4s ease;
+}
+
+/* Text & arrow */
+.action-btn-text,
+.action-btn-arrow {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.action-btn-arrow {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Hover Effect */
+.collection-action-btn:hover {
+  background: #D9DFCC;
+  color: #435739;
+  border-color: #435739;
+}
+
+/* On hover — reveal the V cut */
+.collection-action-btn:hover::after {
+  width: 60px;
+}
+
+/* Arrow motion */
+.collection-action-btn:hover .action-btn-arrow {
+  transform: translateX(6px);
+  color: #435739;
+}
+
+.collection-action-btn:hover .action-btn-text {
+  color: #435739;
+}
+
+/* === Elegance Panel Specific Styles === */
+.elegance-panel .panel-content {
+  justify-content: flex-end;
+}
+
+/* Elegance Panel Tag */
+.elegance-tag {
+  margin-left: -10px;
+  color: #f5eaff;
+}
+
+/* Elegance Panel Heading */
+.elegance-heading {
+  color: #f0e6ff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Elegance Panel Description */
+.elegance-description {
+  color: #e6d9ff;
+}
+
+/* === Story Panel Specific Styles === */
+.story-panel .panel-content {
+  justify-content: flex-start;
+}
+
+/* Story Panel Tag */
+.story-tag {
+  margin-left: -15px;
+  color: #435739;
+}
+
+/* Story Panel Heading */
+.story-heading {
+  color: #435739;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Story Panel Text - Overall text color */
+.story-panel .panel-text {
+  color: #435739;
+}
+
+/* Entry Animation */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-tag, .panel-heading, .panel-description, .collection-action-btn {
+  animation: slideUpFade 0.9s ease-out both;
+}
+
+/* ==================== */
+/* MOBILE RESPONSIVENESS */
+/* ==================== */
+
+/* Tablet Devices (768px and below) */
+@media (max-width: 768px) {
+  .jewelry-showcase-wrapper {
+    padding: 30px 15px;
+    gap: 25px;
+  }
+  
+  .showcase-panel {
+    min-width: 100%;
+    max-width: 100%;
+    height: 380px;
+  }
+  
+  .panel-content {
+    padding: 30px 25px;
+  }
+  
+  .panel-heading {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .panel-description {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    max-width: 350px;
+  }
+  
+  .collection-action-btn {
+    padding: 11px 22px;
+    font-size: 15px;
+    min-width: 135px;
+  }
+}
+
+/* Small Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .jewelry-showcase-wrapper {
+    padding: 20px 12px;
+    gap: 20px;
+  }
+  
+  .showcase-panel {
+    height: 320px;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  
+  .panel-content {
+    padding: 25px 20px;
+  }
+  
+  .panel-heading {
+    font-size: 1.9rem;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  
+  .panel-tag {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    margin-left: -8px !important;
+  }
+  
+  .panel-description {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    max-width: 280px;
+    line-height: 1.4;
+  }
+  
+  .collection-action-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 125px;
+    gap: 10px;
+  }
+  
+  .action-btn-arrow {
+    font-size: 16px;
+  }
+}
+
+/* Extra Small Mobile Devices (360px and below) */
+@media (max-width: 360px) {
+  .jewelry-showcase-wrapper {
+    padding: 15px 10px;
+    gap: 15px;
+  }
+  
+  .showcase-panel {
+    height: 280px;
+  }
+  
+  .panel-content {
+    padding: 20px 15px;
+  }
+  
+  .panel-heading {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+  
+  .panel-tag {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+  }
+  
+  .panel-description {
+    font-size: 0.85rem;
+    max-width: 240px;
+  }
+  
+  .collection-action-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    min-width: 115px;
+    gap: 8px;
+  }
+  
+  .action-btn-arrow {
+    font-size: 14px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .showcase-panel::after {
+    display: none; /* Disable shine effect on touch devices */
+  }
+  
+  .collection-action-btn:active {
+    background: #c8d0b8;
+    transform: scale(0.98);
+  }
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
